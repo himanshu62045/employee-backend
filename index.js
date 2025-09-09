@@ -19,9 +19,13 @@ const limiter = rateLimit({
   message: 'Too many requests, please try again later.',
 });
 app.use(limiter);
+app.get('/', (req, res) => {
+  res.send('Welcome to the Employee Management API');
+});
 
 app.use('/api', apiRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
